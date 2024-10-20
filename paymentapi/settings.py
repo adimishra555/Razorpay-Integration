@@ -37,8 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'razorpayapp',
-    
+    'razorpayapp',   
 ]
 
 MIDDLEWARE = [
@@ -128,7 +127,7 @@ STATICFILES_DIRS = [BASE_DIR / 'razorpayapp/static']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
+#------------------------------------------------------------
 
 RAZORPAY_KEY_ID = 'rzp_test_iOUvY42cnQKQFv'
 RAZORPAY_KEY_SECRET = 'wdC1UnpT7JXwKfsb7rEutWP3'
