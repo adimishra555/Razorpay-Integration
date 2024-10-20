@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Donate{% endblock %}
+
+{% block content %}
+<h2>Make a Donation</h2>
+<form action="{% url 'donate' %}" method="POST">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <input type="text" name="name" required><br>
+    <label for="amount">Amount (INR):</label>
+    <input type="number" name="amount" required><br>
+    <button type="submit">Donate</button>
+</form>
+
+{% if name and amount and payment_id %}
+    <form action="{% url 'success' %}" method="POST">
+        <script
+            src="https://checkout.razorpay.com/v1/checkout.js"
+            data-key="{{ key_id }}"
+            data-amount="{{ amount }}"
+            data-currency="INR"
+            data-buttontext="Pay with Razorpay"
+            data-name="{{ name }}"
+            data-description="Donation"
+            data-theme.color="#F37254">
+        </script>
+        <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id">
+        <h4> Thanks for Donating </h4>
+    </form>
+{% endif %}
+
+{% endblock %}
