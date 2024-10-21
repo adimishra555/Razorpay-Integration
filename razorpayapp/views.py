@@ -36,4 +36,6 @@ def success(request):
             payment.save()
             return render(request, 'success.html', {'payment': payment})
         except Payment.DoesNotExist:
+            # print('Payment is not completed try again!')
             return redirect('donate')
+            
